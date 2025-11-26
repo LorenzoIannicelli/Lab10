@@ -16,7 +16,7 @@ class DAO:
             print('Connessione fallita.')
             return None
         else :
-            cursor = cnx.cursor()
+            cursor = cnx.cursor(dictionary=True)
             query = ("SELECT * "
                      "FROM hub h")
             cursor.execute(query)
@@ -45,13 +45,13 @@ class DAO:
             print('Connessione fallita.')
             return None
         else:
-            cursor = cnx.cursor()
+            cursor = cnx.cursor(dictionary=True)
             query = """SELECT LEAST(id_hub_origine, id_hub_destinazione) AS origine,
                                GREATEST(id_hub_origine, id_hub_destinazione) as destinazione,
                                AVG(valore_merce) as avg_valore_merce
                         FROM spedizione
-                        WHERE avg_valore_merce >= %s
-                        GROUP BY origine, destinazione"""
+                        GROUP BY origine, destinazione
+                        HAVING avg_valore_merce >= %s"""
             cursor.execute(query, (threshold,))
 
             for row in cursor:
