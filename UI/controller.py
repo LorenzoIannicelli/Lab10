@@ -16,5 +16,11 @@ class Controller:
         * Numero di Tratte
         * Lista di Tratte che superano il costo indicato come soglia
         """
-        # TODO
+        valore = self._view.guadagno_medio_minimo.value
+
+        if type(valore) == str:
+            self._view.show_alert('Inserire un valore valido')
+        else :
+            # implementazione del codice
+            pass
 
