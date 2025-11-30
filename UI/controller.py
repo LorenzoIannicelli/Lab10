@@ -34,5 +34,8 @@ class Controller:
                 for hubD in graph[hubO]:
                     text = f'{idx}) [{hubO.nome} ({hubO.stato}) -> {hubD.nome} ({hubD.stato})] -- guadagno Medio Per Spedizione: {graph[hubO][hubD]['weight']}'
                     self._view.lista_visualizzazione.controls.append(ft.Text(text))
+                    idx += 1
+
+            self._view.update()
         except ValueError:
             self._view.show_alert('Inserire un valore adatto!')
