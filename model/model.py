@@ -19,7 +19,7 @@ class Model:
             self._dizionario_hub[hub.id] = hub
 
         self.G.add_nodes_from(self._nodes)
-        print('nodi aggiunti')
+        #print('nodi aggiunti')
 
         self.get_all_edges(threshold)
 
@@ -27,7 +27,7 @@ class Model:
             self.G.add_edge(self._dizionario_hub[edge.origine],
                             self._dizionario_hub[edge.destinazione],
                             weight=edge.avg_valore_merce)
-        print('archi aggiunti')
+        #print('archi aggiunti')
 
     def get_num_edges(self):
         """

@@ -32,7 +32,7 @@ class Controller:
             idx = 1
             for hubO in graph:
                 for hubD in graph[hubO]:
-                    text = f'{idx}) [{hubO.nome} ({hubO.stato}) -> {hubD.nome} ({hubD.stato})] -- guadagno Medio Per Spedizione: {graph[hubO][hubD]['weight']}'
+                    text = f'{idx}) [{hubO} -> {hubD}] -- guadagno Medio Per Spedizione: {graph[hubO][hubD]['weight']}'
                     self._view.lista_visualizzazione.controls.append(ft.Text(text))
                     idx += 1
 
